@@ -1,0 +1,137 @@
+[
+  {
+    "Category":"kitchen-utensils",
+    "Average Precision":null,
+    "Average Recall":null
+  },
+  {
+    "Category":"basket",
+    "Average Precision":0.0,
+    "Average Recall":0.0
+  },
+  {
+    "Category":"bowl",
+    "Average Precision":0.1415841584,
+    "Average Recall":0.2125
+  },
+  {
+    "Category":"candle",
+    "Average Precision":0.0,
+    "Average Recall":0.0
+  },
+  {
+    "Category":"cereals",
+    "Average Precision":0.7365676568,
+    "Average Recall":0.75
+  },
+  {
+    "Category":"chair",
+    "Average Precision":0.0,
+    "Average Recall":0.0
+  },
+  {
+    "Category":"cola",
+    "Average Precision":0.2861386139,
+    "Average Recall":0.2833333333
+  },
+  {
+    "Category":"computer",
+    "Average Precision":0.0,
+    "Average Recall":0.0
+  },
+  {
+    "Category":"cup",
+    "Average Precision":0.1871287129,
+    "Average Recall":0.18
+  },
+  {
+    "Category":"dinosaur_toy",
+    "Average Precision":0.0,
+    "Average Recall":0.0
+  },
+  {
+    "Category":"fork",
+    "Average Precision":0.1534653465,
+    "Average Recall":0.15
+  },
+  {
+    "Category":"glass",
+    "Average Precision":0.662640264,
+    "Average Recall":0.7666666667
+  },
+  {
+    "Category":"gun",
+    "Average Precision":0.0,
+    "Average Recall":0.0
+  },
+  {
+    "Category":"milk",
+    "Average Precision":0.6534653465,
+    "Average Recall":0.7
+  },
+  {
+    "Category":"mini_sponge",
+    "Average Precision":0.3653465347,
+    "Average Recall":0.36
+  },
+  {
+    "Category":"pen",
+    "Average Precision":0.0,
+    "Average Recall":0.0
+  },
+  {
+    "Category":"phone",
+    "Average Precision":0.0,
+    "Average Recall":0.0
+  },
+  {
+    "Category":"pingles",
+    "Average Precision":0.0,
+    "Average Recall":0.0
+  },
+  {
+    "Category":"plate",
+    "Average Precision":0.3841584158,
+    "Average Recall":0.3857142857
+  },
+  {
+    "Category":"pringles",
+    "Average Precision":0.7878359264,
+    "Average Recall":0.95
+  },
+  {
+    "Category":"red_wine",
+    "Average Precision":0.8386138614,
+    "Average Recall":0.9
+  },
+  {
+    "Category":"redbull",
+    "Average Precision":0.0,
+    "Average Recall":0.0
+  },
+  {
+    "Category":"remote",
+    "Average Precision":0.0,
+    "Average Recall":0.0
+  },
+  {
+    "Category":"sink",
+    "Average Precision":0.0,
+    "Average Recall":0.0
+  },
+  {
+    "Category":"spoon",
+    "Average Precision":0.0,
+    "Average Recall":0.0
+  },
+  {
+    "Category":"waste_bin",
+    "Average Precision":0.9,
+    "Average Recall":0.9
+  },
+  {
+    "Category":"water_bottle",
+    "Average Precision":0.5670792079,
+    "Average Recall":0.65
+  }
+]
