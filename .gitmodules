@@ -1,0 +1,3 @@
+[submodule "chatrex"]
+	path = chatrex
+	url = https://github.com/IDEA-Research/ChatRex.git
