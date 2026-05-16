@@ -1,6 +1,33 @@
 # Robust Open-Vocabulary Robot Perception
 
-**Evaluating GroundingDINO and ChatRex for open-set object and human-feature detection in service robotics.**
+<p align="center">
+  <em>
+    <code>Open-set object and human-feature detection for service robotics using GroundingDINO and ChatRex</code>
+  </em>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/python-3.8%2B-blue" alt="python-version">
+  <img src="https://img.shields.io/badge/robotics-perception-blue" alt="robotics-perception">
+  <img src="https://img.shields.io/badge/models-GroundingDINO%20%7C%20ChatRex%20%7C%20Detectron2-green" alt="models">
+  <img src="https://img.shields.io/badge/task-open--vocabulary%20detection-purple" alt="task">
+</p>
+
+---
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Motivation](#motivation)
+- [Perception Pipeline](#perception-pipeline)
+- [Models Evaluated](#models-evaluated)
+- [Experiments](#experiments)
+- [Key Results](#key-results)
+- [Prompt Sensitivity](#prompt-sensitivity)
+- [Human Pose and Gesture Recognition](#human-pose-and-gesture-recognition)
+- [Final Repository Structure](#final-repository-structure)
+- [Installation](#installation)
+- [Environment Variables](#environment-variables)
 
 ---
 
@@ -167,7 +194,7 @@ The open-vocabulary evaluation showed a large improvement over the closed-set ba
 
 ---
 
-## Prompt Sensitivity and Inference Time
+## Prompt Sensitivity
 
 Prompt design had a major effect on both detection quality and inference time.
 
@@ -207,29 +234,6 @@ The results show that prompt specificity matters. Very long prompts can increase
 | Pointing | 96.88% |
 
 Multi-class classification performed better than binary detection for several poses. This suggests that forcing the model to choose the most distinctive action can reduce ambiguity between visually similar poses, such as standing, pointing, and waving.
-
----
-
-## Reliability, Robustness, and Data Science Security Perspective
-
-This project is relevant to reliable and security-aware data science because robotic perception systems can fail under:
-
-- unseen object categories
-- ambiguous prompts
-- distribution shift
-- visually similar human actions
-- closed-set assumptions
-- latency constraints
-
-The experiments evaluate these risks through:
-
-- closed-set vs open-vocabulary model comparison
-- prompt sensitivity analysis
-- inference-time profiling
-- GPU memory measurement
-- human pose ambiguity analysis
-
-The project does not claim to solve all robustness or safety challenges. Instead, it provides an applied evaluation of how open-vocabulary models behave in realistic service-robot perception tasks.
 
 ---
 
@@ -376,71 +380,3 @@ ROBOFLOW_API_KEY=your_api_key_here
 ```
 
 The `.env` file is ignored by Git and should never be committed.
-
----
-
-## Example Usage
-
-Run object detection on the configured dataset:
-
-```bash
-python perception_open_set_detector/run_detections.py
-```
-
-Run and visualize detection on a single image:
-
-```bash
-python perception_open_set_detector/run_and_visualize_detection.py \
-  --image perception_open_set_detector/images/test_single_image_detection.jpeg \
-  --output results/figures/single_image_detection.png \
-  --question "Examine this image and identify all objects you can see."
-```
-
-Run the prompt evaluation test:
-
-```bash
-pytest perception_open_set_detector/tests/test_evaluate_prompts.py
-```
-
-If `ROBOFLOW_API_KEY` is not set, Roboflow-dependent tests are skipped.
-
----
-
-## Technical Skills Demonstrated
-
-This project demonstrates practical experience with:
-
-- robotics perception pipelines
-- open-set and open-vocabulary detection
-- vision-language models
-- prompt-based perception
-- object detection evaluation
-- COCO-style metrics
-- human pose and gesture recognition
-- inference-time analysis
-- GPU memory profiling
-- Python project organization
-- environment variable management
-- applied ML evaluation for robotics
-
----
-
-## Project Summary
-
-This project shows that open-vocabulary vision-language models can significantly improve robotic perception compared to closed-set object detectors, especially when robots must operate in dynamic environments with unseen objects and natural language instructions.
-
-The strongest result was achieved by ChatRex on open-vocabulary object detection, reaching:
-
-```text
-mAP: 0.720
-mAR: 0.772
-```
-
-compared with Detectron2:
-
-```text
-mAP: 0.256
-mAR: 0.276
-```
-
-The main takeaway is that open-vocabulary perception is promising for service robotics, but prompt design, inference time, and ambiguity in human-feature recognition remain important engineering challenges.
