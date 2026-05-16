@@ -1,7 +1,12 @@
+import os
+from dotenv import load_dotenv
 from perception_open_set_detector.classes.model import ChatRexModel
 from perception_open_set_detector.classes.dataset import RoboflowDataset
 from perception_open_set_detector.classes.prompts import Prompt
 from perception_open_set_detector.utils.core_functions import process_images, save_detections_coco, save_detections
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Test close questions with data labels with model
 custom_labels = [
@@ -22,7 +27,12 @@ question = "Please examine this image and identify all objects."
 question_prompt = Prompt(question, custom_labels)
 
 # Get Dataset
-api_key = "6MfL6mP1m3R6aZAnpZ0d"
+api_key = os.getenv("ROBOFLOW_API_KEY")
+if not api_key:
+    raise ValueError(
+        "ROBOFLOW_API_KEY environment variable is not set. "
+        "Please set it in your .env file or system environment."
+    )
 workspace = "diogofalcao"
 #project_name = "robocup2023-l56vz-eunwt"
 project_name = "dataset_pic1"

@@ -1,3 +1,5 @@
+import argparse
+from pathlib import Path
 from PIL import Image
 from chatrex.tools.visualize import visualize_chatrex_output
 from perception_open_set_detector.classes.model import ChatRexModel
@@ -10,15 +12,50 @@ Run and visualize object detection on a single image using the ChatRex pipeline.
 """
 
 if __name__ == "__main__":
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(
+        description="Run and visualize object detection on a single image using ChatRex"
+    )
+    parser.add_argument(
+        "--image",
+        type=str,
+        default="perception_open_set_detector/images/test_single_image_detection.jpeg",
+        help="Path to the input image (default: perception_open_set_detector/images/test_single_image_detection.jpeg)"
+    )
+    parser.add_argument(
+        "--output",
+        type=str,
+        default="results/figures/single_image_detection.png",
+        help="Path to save the output visualization (default: results/figures/single_image_detection.png)"
+    )
+    parser.add_argument(
+        "--question",
+        type=str,
+        default="Examine this image and identify all objects you can see.",
+        help="Question/prompt for detection (default: 'Examine this image and identify all objects you can see.')"
+    )
+    args = parser.parse_args()
+
+    # Validate image path
+    if not Path(args.image).exists():
+        raise FileNotFoundError(
+            f"Image file not found: {args.image}\n"
+            f"Please provide a valid image path using --image argument."
+        )
+
+    # Create output directory if it doesn't exist
+    output_dir = Path(args.output).parent
+    output_dir.mkdir(parents=True, exist_ok=True)
+
     ### Inputs ###
 
     # Create Prompt
     custom_labels = ["candle", "glass", "water_bottle", "pen"]
-    question = "Examine this image and identify all objects you can see."
+    question = args.question
     question_prompt = Prompt(question, custom_labels)
 
     # Load Image
-    image_path = "/home/dfalcao/ChatRex/Dataset_PIC1/test/DSC02222_JPG.rf.95a98ae97c4a64f7b1b200eefbf2906b.jpg"
+    image_path = args.image
     image = ImageData(image_path)
 
     # Load Model (ChatRex)
@@ -41,5 +78,5 @@ if __name__ == "__main__":
     )
 
     # Save prediction image
-    vis_image.save("perception_open_set_detector/images/test_single_image_detection.jpeg")
-    print(f"prediction is saved at tests_simplified/images/test_single_image_detection.jpeg")
+    vis_image.save(args.output)
+    print(f"Prediction saved to: {args.output}")
